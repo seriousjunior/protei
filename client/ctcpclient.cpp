@@ -51,7 +51,7 @@ int CTcpClient::sendMessage(const std::string &msg, std::string &answ)
         char buff[MTU_SIZE];
 
         int buffLen = recv(m_sock, buff, MTU_SIZE, 0);
-        if (buffLen < 0) return -1;
+        if (buffLen <= 0) return -1;
 
 
         if (store.addPacket(buff, buffLen)) return -1;

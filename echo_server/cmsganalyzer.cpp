@@ -13,8 +13,9 @@ CMsgAnalyzer::CMsgAnalyzer()
 
 int CMsgAnalyzer::analyzeMsg(const std::string &msg)
 {
-    printf(">MESSAGE %s\n", msg.c_str());
+    //printf(">MESSAGE %s\n", msg.c_str());
 
+    printf("======= New message =======\n");
     multiset<double> digits;
     double sum = 0;
 
@@ -49,11 +50,16 @@ int CMsgAnalyzer::analyzeMsg(const std::string &msg)
     if (digits.size() > 0)
     {
         printf("sum: %f, min: %f, max: %f\n", sum, *digits.begin(), *digits.rbegin());
-
+        printf("founded digits:");
+        for(multiset<double>::reverse_iterator itDigit = digits.rbegin(); itDigit != digits.rend(); itDigit ++)
+        {
+            printf(" %f", *itDigit);
+        }
+        printf("\n");
     }
     else
     {
-        printf("no acceptable digits founded\n");
+        printf("acceptable digits weren\'t founded\n");
     }
 
     return 0;
