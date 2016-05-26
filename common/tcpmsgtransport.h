@@ -11,7 +11,7 @@ class CTcpMsgStore
     int m_headerLength;
     int m_length; //!< Количество принятых байт
     int m_expected; //!< Ожидаемое количество байт
-    std::list< std::string > m_recvPacks; //!< Данные принятых пакетов
+    std::string m_message; //!< Данные принятых пакетов
 
 public:
     CTcpMsgStore();
